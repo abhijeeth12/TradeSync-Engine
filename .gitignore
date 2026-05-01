@@ -1,0 +1,68 @@
+# ── Maven build output ───────────────────────────────────────────────────────
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# ── Local Maven installation (downloaded by Antigravity) ─────────────────────
+apache-maven-*/
+
+# ── Maven symlink (project-local shortcut) ───────────────────────────────────
+mvn
+
+# ── Compiled Java class files ─────────────────────────────────────────────────
+*.class
+
+# ── JAR / WAR / EAR / ZIP artifacts ──────────────────────────────────────────
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# ── Application logs ──────────────────────────────────────────────────────────
+logs/
+*.log
+*.log.gz
+
+# ── OS generated files ────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ── IDE / Editor files ────────────────────────────────────────────────────────
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# NetBeans
+nbproject/
+nbbuild/
+nbdist/
+
+# ── Docker volumes / runtime state ───────────────────────────────────────────
+pgdata/
+
+# ── Environment / secrets (never commit these) ───────────────────────────────
+.env
+*.env
+*.properties.local
+
+# ── Test coverage reports ─────────────────────────────────────────────────────
+surefire-reports/
+jacoco.exec

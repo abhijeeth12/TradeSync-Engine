@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tradesync-postgres
+    environment:
+      POSTGRES_DB: tradesync
+      POSTGRES_USER: tradesync
+      POSTGRES_PASSWORD: tradesync_secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tradesync -d tradesync"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  app:
+    build: .
+    container_name: tradesync-engine
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/tradesync
+      DB_USER: tradesync
+      DB_PASS: tradesync_secret
+    ports:
+      - "7070:7070"
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+volumes:
+  pgdata:

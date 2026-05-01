@@ -169,4 +169,3 @@ reconciliation_runs(id, run_at, matched, breaks, missing, report_json)
 - **Raw JDBC** with `PreparedStatement` — demonstrates SQL injection awareness, no ORM magic
 - **`ScheduledExecutorService`** for reconciliation — guaranteed single-threaded, no races on the report reference
 - **`AtomicReference<ReconciliationReport>`** — zero-copy lock-free reads from the REST layer
-# TradeSync-Engine
